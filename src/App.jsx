@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Navbar from './Components/Navbar/Navbar'
+import LandingPage from './Components/LandingPage/LandingPage'
+import Marquee from './Components/Marquee/Marquee'
+import About from './Components/About/About'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-        
+      <div className="w-full h-screen">
+        <Navbar />
+        <LandingPage />
+        <Marquee />
+        <About />
+      </div>
+
+
     </>
   )
 }
