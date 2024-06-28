@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react'
 import { GoArrowUpRight } from "react-icons/go";
 
@@ -11,7 +12,12 @@ const LandingPage = () => {
                             <div className="marker text-[#212121] font-['Test_Founders_Grotesk_X_Condensed'] ml-20">
                                 <div className="w-fit flex items-center gap-2 overflow-hidden">
                                 
-                                {index===1 && <div className="w-[9vw] h-[5.3vw] bg-red-600 relative top-[7px] rounded-md"></div> }
+                                {index===1 && <motion.div
+                                 initial={{width:"0"}} 
+                                 animate={{width:"9vw"}}
+                                 transition={{duration:0.5,delay:0.5,ease:[0.76, 0, 0.24, 1]}}
+                                
+                                className="w-[9vw] h-[5.3vw] bg-red-600 relative top-[7px] rounded-md"></motion.div> }
 
                                 <h1 key={index} className="text-[9vw] leading-[7vw]">{marker}</h1>
                                 </div>

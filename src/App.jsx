@@ -8,8 +8,12 @@ import FeaturedProjects from './Components/FeaturedProjects/FeaturedProjects'
 import Cards from './Components/Cards/Cards'
 import StartTheProject from './Components/StartTheProject/StartTheProject'
 import Footer from './Components/Footer/Footer'
+import LocomotiveScroll from 'locomotive-scroll';
 
 const App = () => {
+
+  const locomotiveScroll = new LocomotiveScroll();
+
   return (
     <>
       <div className="w-full h-screen">

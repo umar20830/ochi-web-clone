@@ -1,6 +1,19 @@
-import React from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import React, { useState } from 'react'
 
 const FeaturedProjects = () => {
+
+  const cards =  [useAnimation(),useAnimation(),useAnimation(),useAnimation()];
+
+  const startHandler = (index)=>{
+        cards[index].start({y:"0%"})
+  }
+ 
+  const endHandler = (index)=>{
+        cards[index].start({y:"75%"})
+  }
+
+
     return (
         <>
             <div className="w-full pb-[4vw] font-['Neue_Montreal']">
@@ -17,16 +30,17 @@ const FeaturedProjects = () => {
                             <>
                                 <div>
                                     <div className="flex items-center gap-2 mb-[1vw]"><div className="w-[0.7vw] h-[0.7vw] bg-black rounded-full"></div><h2>{index === 0 ? "FYDE" : index === 1 ? "VISA" : index === 2 ? "TRAWA" : "PREMIUM BLEND"}</h2></div>
-                                    <div key={index} className="w-[45vw] h-[35vw] ">
-                                       <div className="relative w-full h-full hover:scale-[95%] transition-all duration-150">
-                                        <h1 className={`absolute z-50 text-[5vw] text-[#0c4b43] font-bold top-[14vw] ${index===0 ? "left-[32vw]" : index===2 ? "left-[28vw]" : null }`}>
-                                            {index===0 ? "FYDE".split("").map((e,index)=><span key={index}>{e}</span>) : 
-                                             index===1 ? "VISE".split("").map((e,index)=><span key={index}>{e}</span>) :
-                                             index===2 ? "TRAWA".split("").map((e,index)=><span key={index}>{e}</span>) : 
-                                             "PREMIUM BLEND".split("").map((e,index)=><span key={index}>{e}</span>)}
+                                    <div key={index} onMouseEnter={()=>setEffect(true)} onMouseLeave={()=>setEffect(false)} className="w-[45vw] h-[35vw] ">
+                                       <motion.div onHoverStart={()=>startHandler(index)} onHoverEnd={()=>endHandler(index)} className="relative w-full h-full hover:scale-[95%] transition-all duration-150">
+                                        <h1
+                                        className={`overflow-hidden absolute z-50 text-[5vw] text-[#0c4b43] font-bold top-[14vw] ${index===0 ? "left-[31vw]" : index===2 ? "left-[27vw]" : "left-[2vw]" }`}>
+                                            {index===0 ? "FYDE".split("").map((e,index)=><motion.span initial={{y:"75%"}} animate={cards[0]} transition={{duration:.4,delay:index*.05}} key={index} className="inline-block" >{e}</motion.span>) : 
+                                             index===1 ? "VISE".split("").map((e,index)=><motion.span initial={{y:"75%"}} animate={cards[1]} transition={{duration:.4,delay:index*.05}} className="inline-block" >{e}</motion.span>) :
+                                             index===2 ? "TRAWA".split("").map((e,index)=><motion.span  initial={{y:"75%"}} animate={cards[2]} transition={{duration:.4,delay:index*.05}} key={index} className="inline-block" >{e}</motion.span>) : 
+                                             "PREMIUM-BLEND".split("").map((e,index)=><motion.span  initial={{y:"75%"}} animate={cards[3]} transition={{duration:.4,delay:index*.05}} key={index} className="inline-block" >{e}</motion.span>)}
                                             </h1>
                                        <img src={img} alt="Image" className={`w-full h-full rounded-xl hover:opacity-60`} />
-                                       </div>
+                                       </motion.div>
                                     </div>
                                     <div className="buttons flex gap-2">
                                         {
