@@ -10,6 +10,7 @@ import StartTheProject from './Components/StartTheProject/StartTheProject'
 import Footer from './Components/Footer/Footer'
 import LocomotiveScroll from 'locomotive-scroll';
 
+
 const App = () => {
 
   const locomotiveScroll = new LocomotiveScroll();
@@ -26,6 +27,7 @@ const App = () => {
         <Cards />
         <StartTheProject />
         <Footer />
+   
       </div>
 
 

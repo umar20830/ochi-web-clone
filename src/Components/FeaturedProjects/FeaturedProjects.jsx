@@ -30,7 +30,7 @@ const FeaturedProjects = () => {
                             <>
                                 <div>
                                     <div className="flex items-center gap-2 mb-[1vw]"><div className="w-[0.7vw] h-[0.7vw] bg-black rounded-full"></div><h2>{index === 0 ? "FYDE" : index === 1 ? "VISA" : index === 2 ? "TRAWA" : "PREMIUM BLEND"}</h2></div>
-                                    <div key={index} onMouseEnter={()=>setEffect(true)} onMouseLeave={()=>setEffect(false)} className="w-[45vw] h-[35vw] ">
+                                    <div key={index} className="w-[45vw] h-[35vw] ">
                                        <motion.div onHoverStart={()=>startHandler(index)} onHoverEnd={()=>endHandler(index)} className="relative w-full h-full hover:scale-[95%] transition-all duration-150">
                                         <h1
                                         className={`overflow-hidden absolute z-50 text-[5vw] text-[#0c4b43] font-bold top-[14vw] ${index===0 ? "left-[31vw]" : index===2 ? "left-[27vw]" : "left-[2vw]" }`}>

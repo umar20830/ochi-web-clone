@@ -1,6 +1,21 @@
 import React from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { GoArrowDown } from "react-icons/go";
 
 const Footer = () => {
+
+    const span1 = useAnimation();
+    const span2 = useAnimation();
+
+    const startHandler = ()=>{
+        span1.start({x:"100%"});
+        span2.start({color:"#cdea68"})
+    }
+    const stopHandler = ()=>{
+        span1.start({x:"0"});
+        span2.start({color:""})
+    }
+
     return (
         <>
             <div className="w-full h-screen flex p-[2vw] bg-[#f1f1f1]">
@@ -45,11 +60,17 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="copyright w-full flex justify-between items-center">
-                        <div>
+                        <div className="mt-[10vw]">
                             <p className="tracking-tighter opacity-60"> &copy; umar design 2024.</p>
                         </div>
-                        <div className="owner">
-                            <p className="font-bold text-[2vw] text-[#004d43] bg-[#cdea68] p-[1vw] rounded-full hover:bg-[#004d43] hover:text-[#cdea68] transition-all duration-500">Design by Umaza</p>
+                        <div className="owner flex flex-col items-center">
+                            <h1 className="font-bold text-[1.4vw] mb-[1vw] text-[#212121]">Go To GitHub Profile</h1>
+                            <GoArrowDown size={40} className="mb-[1vw]" />
+                            <motion.button onHoverStart={startHandler} onHoverEnd={stopHandler} className="relative rounded-lg px-[3vw] z-[2] py-[1vw] bg-[#cdea68] overflow-hidden">
+                                    <motion.span animate={span1} transition={{duration:0.2,ease:"linear"}} className="inline-block z-[3] rounded-lg absolute w-full h-[4.2vw] top-0 right-[100%] bg-[#0c4b43]"></motion.span>
+                                    <motion.a href="https://github.com/umar20830" target="_blank"  animate={span2} transition={{duration:0.3,ease:"linear"}} className="relative z-[4] text-[1.5vw] font-['Neue_Montreal'] font-bold text-[#0c4b43]">Design By Umaza</motion.a>
+
+                            </motion.button>
                         </div>
                     </div>
                 </div>
